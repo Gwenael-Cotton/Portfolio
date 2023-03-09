@@ -1,19 +1,19 @@
 <template>
-  <HelloWorld msg="Welcome to my portfolio" />
+  <HeroSection msg="Welcome to my portfolio" />
   <ProjectList :projects="projects" />
   <FooterContact />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import HeroSection from "./components/HeroSection.vue";
 import ProjectList from "./components/ProjectList.vue";
 import FooterContact from "./components/FooterContact.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    HelloWorld,
+    HeroSection,
     ProjectList,
     FooterContact,
   },
