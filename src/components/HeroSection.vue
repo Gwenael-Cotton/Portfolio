@@ -2,29 +2,32 @@
   <div class="hero">
     <div class="hero-picture">
       <img id="photo" alt="Mon portrait" src="../assets/photo.jpeg" />
-      <h1>Hi, my name is Mouth ... Cotton Mouth</h1>
+      <div>
+        <h1 class="hero-title">Gwenaël Cotton</h1>
+        <h2 class="hero-title2">Développeur web</h2>
+      </div>
     </div>
     <h1>{{ msg }}</h1>
     <p class="text">
-      Hi, My name is Gwen and I am a front-end web developer with 2 years of
-      experience in the field. I have acquired my skills through an
-      apprenticeship at Sfeir Group. My main expertise lies in React
-      development, but I also have experience working with Terraform, GCP,
-      CI/CD, Docker and various other technologies.
+      Je suis développeur web front-end avec 2 ans d'expérience dans le domaine.
+      J'ai acquis mes compétences grâce à un apprentissage chez Sfeir Group. Mon
+      expertise principale réside dans le développement de React, mais j'ai
+      également une expérience de travail avec Terraform, GCP, CI/CD, Docker et
+      diverses autres technologies.
       <!-- <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
         >vue-cli documentation</a
       >. -->
     </p>
     <p class="text">
-      I pride myself on being able to adapt quickly to any project, from its
-      beginning stages all the way through to its completion. Whether it's
-      building a new website from scratch or improving an existing one, I am
-      always ready for a challenge.
+      Je suis fier de pouvoir m'adapter rapidement à n'importe quel projet, de
+      ses débuts jusqu'à sa réalisation. Qu'il s'agisse de créer un nouveau site
+      Web à partir de zéro ou d'améliorer un site existant, je suis toujours
+      prêt à relever un défi.
     </p>
     <p class="text">
-      If you're looking for someone who is skilled, knowledgeable, and
-      passionate about their work, then look no further. Thank you for
-      considering me for your next project!
+      Si vous recherchez une personne qualifiée, compétente et passionnée par
+      son travail, ne cherchez pas plus loin. Merci de me considérer pour votre
+      prochain projet!
     </p>
   </div>
 </template>
@@ -59,29 +62,68 @@ $white: #ffffff;
   height: 300px;
   border-top: 1px solid $black;
   border-bottom: 1px solid $black;
+  animation: border-top 1s linear forwards;
+  animation: border-bottom 1s linear forwards;
   overflow: hidden;
   margin: 0 auto;
 }
+
 #photo {
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-  // border-radius: 50%;
   width: 300px;
   height: 300px;
   object-fit: cover;
-}
-h1 {
-  margin: 40px 0 0;
-  animation: 0.4s left-to-right forwards;
+  animation: image 2.5s ease-out forwards;
 }
 
-@keyframes left-to-right {
+/* Define the animation */
+@keyframes border-top {
+  from {
+    width: 20%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes border-bottom {
+  from {
+    width: 20%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes image {
   from {
     opacity: 0;
-    transform: translateX(-100px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+  }
+}
+
+.hero-title {
+  opacity: 0;
+  animation: slide-in 0.2s ease-out forwards;
+  animation-delay: 0.8s;
+  font-size: 36px;
+}
+
+.hero-title2 {
+  opacity: 0;
+  animation: slide-in 0.2s ease-out forwards;
+  animation-delay: 1s;
+  font-size: 32px;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -98,19 +140,19 @@ a {
 }
 .text {
   font-size: 1.2rem;
-  animation: 1s back-to-front ease-in;
+  // animation: 1s back-to-front ease-in;
 }
 
-@keyframes back-to-front {
-  from {
-    opacity: 0;
-    transform: translateZ(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translatez(0);
-  }
-}
+// @keyframes back-to-front {
+//   from {
+//     opacity: 0;
+//     transform: translateZ(-100px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translatez(0);
+//   }
+// }
 
 @media (max-width: 768px) {
   .text {
