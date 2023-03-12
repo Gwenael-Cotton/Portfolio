@@ -2,21 +2,15 @@
   <div class="hero">
     <div class="hero-picture">
       <img id="photo" alt="Mon portrait" src="../assets/photo.jpeg" />
-      <div>
-        <h1 class="hero-title">Gwenaël Cotton</h1>
-        <h2 class="hero-title2">Développeur web</h2>
-      </div>
     </div>
-    <h1>{{ msg }}</h1>
+    <!-- <h1>{{ msg }}</h1> -->
+    <h1 class="hero-title">Gwenaël Cotton - Développeur web</h1>
     <p class="text">
       Je suis développeur web front-end avec 2 ans d'expérience dans le domaine.
       J'ai acquis mes compétences grâce à un apprentissage chez Sfeir Group. Mon
       expertise principale réside dans le développement de React, mais j'ai
       également une expérience de travail avec Terraform, GCP, CI/CD, Docker et
       diverses autres technologies.
-      <!-- <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >. -->
     </p>
     <p class="text">
       Je suis fier de pouvoir m'adapter rapidement à n'importe quel projet, de
@@ -43,7 +37,6 @@ export default defineComponent({
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 $black: #34435e;
 $white: #ffffff;
@@ -62,8 +55,8 @@ $white: #ffffff;
   height: 300px;
   border-top: 1px solid $black;
   border-bottom: 1px solid $black;
-  animation: border-top 1s linear forwards;
-  animation: border-bottom 1s linear forwards;
+  animation: border-top 2s linear forwards;
+  animation: border-bottom 2s linear forwards;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -73,10 +66,9 @@ $white: #ffffff;
   width: 300px;
   height: 300px;
   object-fit: cover;
-  animation: image 2.5s ease-out forwards;
+  animation: image 1.5s ease-out forwards;
 }
 
-/* Define the animation */
 @keyframes border-top {
   from {
     width: 20%;
@@ -105,25 +97,24 @@ $white: #ffffff;
 }
 
 .hero-title {
-  opacity: 0;
-  animation: slide-in 0.2s ease-out forwards;
-  animation-delay: 0.8s;
-  font-size: 36px;
+  width: 29ch;
+  animation: typing 3s steps(29), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid;
+  font-size: 2em;
+  margin: 1rem auto;
 }
 
-.hero-title2 {
-  opacity: 0;
-  animation: slide-in 0.2s ease-out forwards;
-  animation-delay: 1s;
-  font-size: 32px;
-}
-
-@keyframes slide-in {
+@keyframes typing {
   from {
-    opacity: 0;
+    width: 0;
   }
-  to {
-    opacity: 1;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
   }
 }
 
@@ -139,24 +130,29 @@ a {
   color: #42b983;
 }
 .text {
+  opacity: 0;
   font-size: 1.2rem;
-  // animation: 1s back-to-front ease-in;
+  animation: 1s back-to-front ease-in forwards;
+  animation-delay: 1s;
 }
 
-// @keyframes back-to-front {
-//   from {
-//     opacity: 0;
-//     transform: translateZ(-100px);
-//   }
-//   to {
-//     opacity: 1;
-//     transform: translatez(0);
-//   }
-// }
+@keyframes back-to-front {
+  from {
+    opacity: 0;
+    transform: translateZ(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translatez(0);
+  }
+}
 
 @media (max-width: 768px) {
   .text {
-    font-size: 1rem !important;
+    font-size: 0.8rem !important;
+  }
+  .hero-title {
+    font-size: 1rem;
   }
 }
 @media (max-width: 1000px) {
@@ -164,9 +160,8 @@ a {
     width: 200px !important;
     height: 200px !important;
   }
-  // .hero-picture {
-  //   width: 200px !important;
-  //   height: 200px !important;
-  // }
+  .hero-picture {
+    height: 200px !important;
+  }
 }
 </style>
