@@ -139,6 +139,7 @@ $white: #ffffff;
   }
 
   .stackItem {
+    font-size: 1.2rem;
     border: 1px solid $black;
     padding: 0.5rem;
     margin: 0.5rem;
@@ -207,6 +208,14 @@ $white: #ffffff;
 
   .description {
     font-size: 0.8rem !important;
+  }
+  .stackItem {
+    font-size: 0.8rem !important;
+    padding: 0.3rem !important;
+    margin: 0.3rem !important;
+  }
+  .date {
+    font-size: 0.8rem;
   }
 }
 
