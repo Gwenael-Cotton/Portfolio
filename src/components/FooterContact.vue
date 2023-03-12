@@ -3,7 +3,9 @@
     <span class="copyright"> © Cotton Gwenaël 2023 - Tous droits réservés</span>
     <ul class="contact-list">
       <li v-for="(icon, index) in icons" class="contact-list-item" :key="index">
-        <img :src="icon.url" :alt="icon.alt" class="icon" />
+        <a :href="icon.url" target="_blank">
+          <img :src="icon.path" :alt="icon.alt" class="icon" />
+        </a>
       </li>
     </ul>
   </footer>
@@ -15,20 +17,24 @@ export default {
     return {
       icons: [
         {
-          url: "001-instagram.png",
+          path: "001-instagram.png",
           alt: "icon instagram",
+          url: "#",
         },
         {
-          url: "002-linkedin.png",
+          path: "002-linkedin.png",
           alt: "icon linkedin",
+          url: "https://www.linkedin.com/in/gwenaelcotton",
         },
         {
-          url: "003-github.png",
+          path: "003-github.png",
           alt: "icon github",
+          url: "https://github.com/Gwenael-Cotton",
         },
         {
-          url: "004-email.png",
+          path: "004-email.png",
           alt: "icon email",
+          url: "mailto:gwenael.cotton@gmail.com",
         },
       ],
     };
@@ -64,6 +70,19 @@ footer {
     opacity: 1;
     cursor: pointer;
     transition: all 0.4s;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column-reverse;
+    justify-content: space-around;
+  }
+  .contact-list {
+    padding: 0;
+  }
+  .copyright {
+    font-size: 0.8rem;
   }
 }
 </style>
